@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<artifactId>javacpp-examples</artifactId>
 		<groupId>de.jotschi</groupId>
@@ -27,6 +27,23 @@
 
 	<build>
 		<plugins>
+		  <plugin>
+	        <artifactId>maven-surefire-plugin</artifactId>
+	        <version>2.9</version>
+	        <configuration>
+	          <forkMode>once</forkMode>
+	          <environmentVariables>
+	            <LD_LIBRARY_PATH>target/classes/linux-x86</LD_LIBRARY_PATH>
+	          </environmentVariables>
+	          <systemProperties>
+	            <property>
+	              <name>java.library.tmpdir</name>
+	              <value>target/classes/linux-x86</value>
+	            </property>
+	          </systemProperties>
+	        </configuration>
+	      </plugin>
+		
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -51,19 +68,20 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
-						    <executable>java</executable>
-							<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/classes JavaCube</commandlineArgs>
+							<executable>java</executable>
+							<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/classes JavaCube</commandlineArgs>
 						</configuration>
 					</execution>
 
 
 				</executions>
-				
+
 			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
