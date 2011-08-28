@@ -1,0 +1,7 @@
+target
+.settings
+.classpath
+.project
+*.o
+*.so
+*.gch
