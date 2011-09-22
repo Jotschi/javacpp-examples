@@ -10,5 +10,6 @@
 		<module>javacpp-sharedlib-example</module>
 		<module>javacpp-android-example</module>
 		<module>javacpp-stdlib-example</module>
+		<module>javacpp-libc6-example</module>
 	</modules>
 </project>

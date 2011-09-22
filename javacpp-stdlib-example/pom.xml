@@ -50,7 +50,7 @@
 			<executions>
 				<execution>
 					<id>build-jnilib</id>
-					<phase>process-classes</phase>
+					<phase>process-test-classes</phase>
 					<goals>
 						<goal>exec</goal>
 					</goals>
