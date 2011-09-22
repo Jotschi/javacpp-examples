@@ -8,5 +8,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>javacpp-sharedlib-example</module>
+		<module>javacpp-android-example</module>
+		<module>javacpp-stdlib-example</module>
 	</modules>
 </project>

@@ -7,7 +7,7 @@
 		<groupId>de.jotschi</groupId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>javacpp-sharedlib-example</artifactId>
+	<artifactId>javacpp-stdlib-example</artifactId>
 	<name>Simple JavaCPP example</name>
 
 	<dependencies>
@@ -49,18 +49,6 @@
 			<version>1.1</version>
 			<executions>
 				<execution>
-					<id>build-sharedlib</id>
-					<phase>process-classes</phase>
-					<goals>
-						<goal>exec</goal>
-					</goals>
-					<configuration>
-						<executable>make</executable>
-						<commandlineArgs>main</commandlineArgs>
-						<workingDirectory>${basedir}/src/main/jni</workingDirectory>
-					</configuration>
-				</execution>
-				<execution>
 					<id>build-jnilib</id>
 					<phase>process-classes</phase>
 					<goals>
@@ -68,7 +56,7 @@
 					</goals>
 					<configuration>
 						<executable>java</executable>
-						<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/classes JavaCube</commandlineArgs>
+						<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/test-classes VectorTest</commandlineArgs>
 					</configuration>
 				</execution>
 			</executions>
