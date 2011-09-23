@@ -11,6 +11,7 @@ extern "C" {
 
 void setColor() {
 	__android_log_print(ANDROID_LOG_INFO, "OpenGLTest", "Test");
+	glClearColor(0,1,1,0);
 }
 
 #ifdef __cplusplus

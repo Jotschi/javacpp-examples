@@ -41,7 +41,7 @@ public class OpenGLRenderer implements Renderer {
 		// Clears the screen and depth buffer.
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | // OpenGL docs.
 				GL10.GL_DEPTH_BUFFER_BIT);
-		gl.glClearColor(1, 0, 0, 0);
+		//gl.glClearColor(1, 0, 0, 0);
 		OpenGLNative.setColor();
 		
 	}
