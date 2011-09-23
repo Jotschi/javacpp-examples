@@ -1,3 +1,5 @@
+package de.jotschi.javacpp.example;
+
 import org.junit.Test;
 
 public class CubeTest {

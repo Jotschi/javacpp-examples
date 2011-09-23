@@ -1,6 +1,5 @@
-package de.jotschi.MavenAndroidTest;
+package de.jotschi.javacpp.example;
 import static com.googlecode.javacpp.Loader.load;
-
 
 import com.googlecode.javacpp.Pointer;
 import com.googlecode.javacpp.annotation.Name;

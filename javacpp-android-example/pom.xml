@@ -68,8 +68,8 @@
 							<goal>exec</goal>
 						</goals>
 						<configuration>
-							<executable>make</executable>
-							<commandlineArgs>main</commandlineArgs>
+							<executable>${android.ndk.path}/ndk-build</executable>
+							<!-- commandlineArgs></commandlineArgs -->
 							<workingDirectory>${basedir}/src/main/jni</workingDirectory>
 						</configuration>
 					</execution>
@@ -81,7 +81,8 @@
 						</goals>
 						<configuration>
 							<executable>java</executable>
-							<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/classes de.jotschi.MavenAndroidTest.JavaCube</commandlineArgs>
+							<!--  :${android.ndk.path}/platforms/android-5/arch-arm/usr/include/ -->
+							<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/libs/armeabi -Dcompiler.includepath=${basedir}/jni -classpath target/classes de.jotschi.MavenAndroidTest.OpenGLNative</commandlineArgs>
 						</configuration>
 					</execution>
 				</executions>

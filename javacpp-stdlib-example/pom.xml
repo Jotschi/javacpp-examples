@@ -56,7 +56,7 @@
 					</goals>
 					<configuration>
 						<executable>java</executable>
-						<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/test-classes VectorTest</commandlineArgs>
+						<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/target/classes/linux-x86 -Dcompiler.includepath=${basedir}/src/main/jni -classpath target/test-classes de.jotschi.javacpp.example.VectorTest</commandlineArgs>
 					</configuration>
 				</execution>
 			</executions>

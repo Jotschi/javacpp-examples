@@ -1,3 +1,4 @@
+package de.jotschi.javacpp.example;
 import org.junit.Test;
 
 import com.googlecode.javacpp.Loader;

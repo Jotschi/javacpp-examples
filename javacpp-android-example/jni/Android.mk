@@ -6,8 +6,9 @@ LOCAL_MODULE := opengltest
 
 LOCAL_CFLAGS := -DANDROID_NDK 
 
-LOCAL_SRC_FILES := opengltest.cpp 
+LOCAL_SRC_FILES := opengltest.c
 
-LOCAL_LDLIBS := -lGLESv1_CM -ldl -llog
+LOCAL_LDLIBS := -lGLESv2 -llog
 
 include $(BUILD_SHARED_LIBRARY)
+
