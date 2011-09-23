@@ -42,7 +42,8 @@ public class OpenGLRenderer implements Renderer {
 		gl.glClear(GL10.GL_COLOR_BUFFER_BIT | // OpenGL docs.
 				GL10.GL_DEPTH_BUFFER_BIT);
 		gl.glClearColor(1, 0, 0, 0);
-		OpenGLNative.strlen("abc");
+		OpenGLNative.setColor();
+		
 	}
 
 	/*

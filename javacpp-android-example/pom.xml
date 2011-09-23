@@ -24,7 +24,7 @@
 			<version>20110705</version>
 			<groupId>com.googlecode.javacpp</groupId>
 			<scope>system</scope>
-			<systemPath>${basedir}/../libs/javacpp.jar</systemPath>
+			<systemPath>${basedir}/libs/javacpp.jar</systemPath>
 		</dependency>
 	</dependencies>
 
@@ -62,18 +62,6 @@
 				<version>1.1</version>
 				<executions>
 					<execution>
-						<id>build-sharedlib</id>
-						<phase>process-classes</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>${android.ndk.path}/ndk-build</executable>
-							<!-- commandlineArgs></commandlineArgs -->
-							<workingDirectory>${basedir}/src/main/jni</workingDirectory>
-						</configuration>
-					</execution>
-					<execution>
 						<id>build-jnilib</id>
 						<phase>process-classes</phase>
 						<goals>
@@ -81,11 +69,25 @@
 						</goals>
 						<configuration>
 							<executable>java</executable>
-							<!--  :${android.ndk.path}/platforms/android-5/arch-arm/usr/include/ -->
-							<commandlineArgs>-jar ../libs/javacpp.jar -Dcompiler.linkpath=${basedir}/libs/armeabi -Dcompiler.includepath=${basedir}/jni -classpath target/classes de.jotschi.MavenAndroidTest.OpenGLNative</commandlineArgs>
+							  <!-- ${android.ndk.path}/platforms/android-5/arch-arm/usr/include/ -->
+							  
+							<commandlineArgs>-jar ../libs/javacpp.jar -classpath target/classes -cpp -d target -properties android-arm -Dplatform.root=${android.ndk.path} -Dcompiler.path=${android.ndk.path}/toolchains/arm-linux-androideabi-4.4.3/prebuilt/linux-x86/bin/arm-linux-androideabi-g++  -Dcompiler.includepath=${basedir}/jni:${android.ndk.path}/platforms/android-5/arch-arm/usr/include/ de.jotschi.MavenAndroidTest.OpenGLNative</commandlineArgs>
+						</configuration>
+					</execution>
+					<execution>
+						<id>build-sharedlib</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<executable>${android.ndk.path}/ndk-build</executable>
+							<workingDirectory>${basedir}/jni</workingDirectory>
 						</configuration>
 					</execution>
 				</executions>
+				
+				
 			  </plugin>
 		</plugins>
 		<pluginManagement>
